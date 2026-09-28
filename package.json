@@ -1,0 +1,1 @@
+{"name":"dji-mini-2-flight-lab","version":"1.0.0","private":true,"type":"module","scripts":{"test":"node --test tests/*.test.js"}}

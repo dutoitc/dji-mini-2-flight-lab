@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#071522">
+  <meta name="description" content="DJI Mini 2 Flight Lab — simulateur de vol de drone dans le navigateur">
+  <title>DJI Mini 2 · Flight Lab</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">✦</span><div><strong>FLIGHT LAB</strong><small>DJI MINI 2 · TRAINING SIM</small></div></div>
+      <div class="top-actions"><span class="pill live"><i></i> SIMULATION 3D</span><button id="resetTop" class="ghost">Réinitialiser</button></div>
+    </header>
+    <section class="simulator" id="simulator">
+      <canvas id="flightCanvas" aria-label="Vue du terrain et du drone"></canvas>
+      <div class="vignette"></div>
+      <div class="hud hud-top"><div><span class="eyebrow">MODE</span><b id="modeValue">SOL</b></div><div class="mission"><span class="eyebrow">ZONE D'ENTRAÎNEMENT</span><b>VALLON DES SAPINS</b></div><div class="signal"><span class="eyebrow">SIGNAL</span><b><i></i> SIMULÉ</b></div></div>
+      <div class="hud left-stack"><div class="readout"><span>ALTITUDE</span><strong id="altitudeValue">0.0</strong><em>m</em></div><div class="readout"><span>VITESSE</span><strong id="speedValue">0.0</strong><em>m/s</em></div><div class="readout"><span>CAP</span><strong id="headingValue">000</strong><em>°</em></div></div>
+      <div class="hud right-stack"><div class="readout compact"><span>POSITION</span><strong id="positionValue">X 0.0 · Z 0.0</strong></div><div class="readout compact"><span>DISTANCE DEPUIS LE DÉBUT</span><strong id="distanceValue">0.0 m</strong></div><div class="readout compact"><span>CAMÉRA</span><strong id="cameraValue">ARRIÈRE</strong></div></div>
+      <div class="attitude"><div class="attitude-ball" id="attitudeBall"><span></span></div><div class="attitude-mark">— ◇ —</div><small>ASSIETTE</small></div>
+      <div class="center-message" id="centerMessage"><span>PRÊT À DÉCOLLER</span><strong>Appuie sur ESPACE</strong></div>
+      <div class="bottom-hud"><div class="legend"><span><i class="key-dot blue"></i> ARMED</span><span><i class="key-dot orange"></i> TERRAIN PROCÉDURAL</span></div><div class="battery"><span>BATTERIE</span><div><i id="batteryBar"></i></div><b id="batteryValue">SIMULÉ</b></div></div>
+    </section>
+    <section class="control-deck">
+      <div class="panel instructions"><div class="panel-title"><span>COMMANDES</span><small>MODE 2 · CLAVIER PHYSIQUE</small></div><div class="sticks"><div class="stick"><div class="key-row"><kbd>W</kbd></div><div class="key-row"><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></div><p>GAUCHE · altitude / lacet</p></div><div class="stick"><div class="key-row"><kbd>↑</kbd></div><div class="key-row"><kbd>←</kbd><kbd>↓</kbd><kbd>→</kbd></div><p>DROITE · tangage / roulis</p></div><div class="view-keys"><kbd>1</kbd><span>vue bas</span><kbd>2</kbd><span>vue haut</span><kbd>§</kbd><span>dessus / dessous</span><kbd>C</kbd><span>caméra / poursuite</span><kbd>P</kbd><span>pause</span></div></div></div>
+      <div class="panel flight-controls"><div class="panel-title"><span>CONTRÔLE DE VOL</span><small id="flightStatus">MOTEURS ARRÊTÉS</small></div><div class="control-buttons"><button id="takeoffButton" class="primary">⚡ Décoller</button><button id="landButton">⌄ Atterrir</button><button id="resetButton">↺ Retour au départ</button></div><div class="tips"><span>ESPACE</span> décollage&nbsp;&nbsp; <span>L</span> atterrissage&nbsp;&nbsp; <span>R</span> réinitialiser</div></div>
+      <div class="panel telemetry"><div class="panel-title"><span>INSTRUMENTS</span><small>INSPIRÉ DU MINI 2</small></div><div class="telemetry-grid"><div><span>ZONE DE VOL</span><b>Rayon 650 m</b></div><div><span>PLAFOND SIMULÉ</span><b>120 m</b></div><div><span>ASSISTANCE</span><b>GPS / freinage</b></div><div><span>COLLISIONS</span><b id="collisionValue">ACTIVES</b></div></div></div>
+    </section>
+    <footer><span>DJI Mini 2 Flight Lab</span><span>Terrain génératif · collisions arbres / relief · aucune donnée envoyée</span><span>v1.0</span></footer>
+  </main>
+  <script type="module" src="./src/app.js"></script>
+</body>
+</html>
